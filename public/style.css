@@ -1,0 +1,354 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+/* navbar styles  */
+
+.navbar {
+  background-color: rgb(152, 224, 248);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  padding: 0 20px;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  color: #000;
+  text-decoration: none;
+}
+
+.logo img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+.logo-text {
+  font-size: 1.4rem;
+  font-weight: bold;
+  padding-right: 10px;
+}
+
+.logo-text0 {
+  font-weight: bold;
+}
+
+.logo-text1 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  padding-left: 10px;
+  color: red;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-icon {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+/* main styles  */
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sidebar {
+  margin: 20px 30px;
+  background-color: rgb(152, 224, 248);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 20px;
+}
+
+ul {
+  display: none;
+}
+
+.sidebar:hover ul {
+  display: block;
+  list-style: none;
+}
+
+.sidebar:hover li a {
+  display: block;
+  padding-top: 10px;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  padding: 10px;
+}
+
+/* User data table  */
+
+.card1 {
+  background-color: rgb(193, 234, 249);
+  padding: 20px;
+  margin: 15px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+  border-radius: 5px;
+  width: 70vw;
+  height: 80vh;
+  overflow-y: auto;
+}
+
+
+
+.card1 h2 {
+  font-weight: bold;
+  color: red;
+  padding: 10px;
+}
+
+.card1 table {
+  padding: 10px;
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 20px;
+}
+
+th,
+td {
+  text-align: center;
+  padding: 10px;
+}
+
+th {
+  background-color: #3498db;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #e5e5e5;
+}
+
+
+
+/* card 2 form  */
+
+.card2 {
+  background-color: rgb(193, 234, 249);
+  padding: 20px;
+  margin: 15px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+  border-radius: 5px;
+  width: 70%;
+}
+
+.card2 h2 {
+  font-weight: bold;
+  color: red;
+  padding: 10px;
+}
+
+.form-group {
+  margin-top: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.btn button {
+  background-color: #71bdf0;
+  padding: 10px 30px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  border-radius: 5px;
+  border: none;
+  margin-top: 30px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.btn button:hover {
+  background-color: #2980b9;
+}
+
+button {
+  background-color: #71bdf0;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  margin-right: 0.5rem;
+}
+
+button:hover {
+  background-color: #2980b9;
+}
+
+/* confirmation window  */
+/* Modal dialog */
+.modal {
+  display: none;
+  /* Hide the modal by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+/* Modal content */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+  /* Could be more or less, depending on screen size */
+  text-align: center;
+}
+
+/* Modal buttons */
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.modal-confirm {
+  background-color: #008CBA;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.modal-cancel {
+  background-color: #f44336;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+/* For Tablets  */
+
+@media screen and (max-width: 768px) {
+  /* navbar styles  */
+
+  .navbar {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .navbar-left,
+  .navbar-right {
+    width: 100%;
+    text-align: center;
+  }
+
+  .logo {
+    margin-bottom: 10px;
+  }
+
+  .navbar-icon {
+    margin: 0 10px;
+  }
+
+  /* main styles  */
+
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    display: none;
+    height: auto;
+  }
+
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+  }
+
+  .card1 {
+    width: 93vw;
+    overflow-y: scroll;
+    overflow-x: scroll;
+  }
+
+  .card2 {
+    width: 93vw;
+  }
+}
+
+
+
+
+
+
+/* For Mobile  */
+
+@media screen and (max-width: 600px) {
+  .card1 {
+    padding: 10px;
+    width: 86vw;
+  }
+
+  .card2 {
+    padding: 10px;
+    width: 86vw;
+  }
+
+}
