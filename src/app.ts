@@ -20,7 +20,8 @@ form.addEventListener("submit", (event: Event) => {
   // Select the input fields from the form and get their values
   const firstNameInput = document.querySelector("#firstName") as HTMLInputElement;
   const firstName = firstNameInput.value.trim(); // Trim any leading/trailing whitespace
-  const lastName = (document.querySelector("#lastName") as HTMLInputElement).value;
+  const lastNameInput = document.querySelector("#lastName") as HTMLInputElement;
+  const lastName = lastNameInput.value.trim();
   const email = (document.querySelector("#email") as HTMLInputElement).value;
   const ageInput = (document.querySelector("#age") as HTMLInputElement);
   const age = parseInt(ageInput.value);
@@ -28,10 +29,15 @@ form.addEventListener("submit", (event: Event) => {
   // Define a regular expression pattern that matches only alphabetical characters
   const alphaPattern = /^[A-Za-z]+$/;
 
-  // Validate the firstName input
+  // Validate the firstName and lastName inputs
   if (!alphaPattern.test(firstName)) {
     alert("First name must only contain letters");
     firstNameInput.focus();
+    return;
+  }
+  if (!alphaPattern.test(lastName)) {
+    alert("Last name must only contain letters");
+    lastNameInput.focus();
     return;
   }
 
@@ -41,8 +47,6 @@ form.addEventListener("submit", (event: Event) => {
     ageInput.focus();
     return;
   }
-
-
 
   // Check if there is a selected row (for editing) and update its data if there is, otherwise create a new object with the form data and add it to the array
   const selectedRow = table.querySelector(".selected") as HTMLTableRowElement;

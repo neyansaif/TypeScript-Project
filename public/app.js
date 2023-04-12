@@ -10,16 +10,22 @@ form.addEventListener("submit", (event) => {
     // Select the input fields from the form and get their values
     const firstNameInput = document.querySelector("#firstName");
     const firstName = firstNameInput.value.trim(); // Trim any leading/trailing whitespace
-    const lastName = document.querySelector("#lastName").value;
+    const lastNameInput = document.querySelector("#lastName");
+    const lastName = lastNameInput.value.trim();
     const email = document.querySelector("#email").value;
     const ageInput = document.querySelector("#age");
     const age = parseInt(ageInput.value);
     // Define a regular expression pattern that matches only alphabetical characters
     const alphaPattern = /^[A-Za-z]+$/;
-    // Validate the firstName input
+    // Validate the firstName and lastName inputs
     if (!alphaPattern.test(firstName)) {
         alert("First name must only contain letters");
         firstNameInput.focus();
+        return;
+    }
+    if (!alphaPattern.test(lastName)) {
+        alert("Last name must only contain letters");
+        lastNameInput.focus();
         return;
     }
     // Validate the age input
