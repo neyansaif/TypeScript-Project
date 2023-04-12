@@ -18,18 +18,31 @@ form.addEventListener("submit", (event: Event) => {
   event.preventDefault();
 
   // Select the input fields from the form and get their values
-  const firstName = (document.querySelector("#firstName") as HTMLInputElement)
-    .value;
-  const lastName = (document.querySelector("#lastName") as HTMLInputElement)
-    .value;
+  const firstNameInput = document.querySelector("#firstName") as HTMLInputElement;
+  const firstName = firstNameInput.value.trim(); // Trim any leading/trailing whitespace
+  const lastName = (document.querySelector("#lastName") as HTMLInputElement).value;
   const email = (document.querySelector("#email") as HTMLInputElement).value;
-  const age = parseInt(
-    (document.querySelector("#age") as HTMLInputElement).value
-  );
+  const ageInput = (document.querySelector("#age") as HTMLInputElement);
+  const age = parseInt(ageInput.value);
 
-  form.addEventListener("reset", (event: Event) => {
-    form.reset();
-  });
+  // Define a regular expression pattern that matches only alphabetical characters
+  const alphaPattern = /^[A-Za-z]+$/;
+
+  // Validate the firstName input
+  if (!alphaPattern.test(firstName)) {
+    alert("First name must only contain letters");
+    firstNameInput.focus();
+    return;
+  }
+
+  // Validate the age input
+  if (age < 1 || age > 100) {
+    alert("Age must be between 1 and 100");
+    ageInput.focus();
+    return;
+  }
+
+
 
   // Check if there is a selected row (for editing) and update its data if there is, otherwise create a new object with the form data and add it to the array
   const selectedRow = table.querySelector(".selected") as HTMLTableRowElement;
@@ -50,12 +63,17 @@ form.addEventListener("submit", (event: Event) => {
     formData.unshift(newData);
   }
 
-  // Clear the input fields
   form.reset();
 
-  // Call a function to update the table with the new data
   updateTable();
 });
+
+
+form.addEventListener("reset", (event: Event) => {
+  form.reset();
+});
+
+
 
 // Define a function to update the table with the current form data
 function updateTable() {
